@@ -67,7 +67,7 @@ Config.Categories = [
     {label: "Social Networks", default: false},
     {label: "Staff team", default: true}
 ];
-
+```
 
 ## Contributing
 We welcome contributions from the community! Feel free to fork the repository, make improvements, and submit pull requests. Please ensure your code follows the project's coding standards and includes relevant documentation.
