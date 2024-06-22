@@ -2,6 +2,10 @@
 
 Welcome to the FiveM Loading Screen Standalone repository! This project is designed to enhance the loading experience for your FiveM server, supporting both ESX and QBcore frameworks. With the ability to add custom functions, you can play multiple background videos and display interactive buttons for a dynamic and engaging loading screen.
 
+## Author
+Created By [@ZAID](https://fiverr.com/users/zaidqaiser3)
+
+
 ## Preview
 ![1](https://github.com/zaidqaiser/FiveM-LoadingScreen--Latest/assets/114343092/bcf137ee-d5d0-4356-b57d-842e42c4876b)
 
