@@ -1,0 +1,3 @@
+hi
+
+Upload these images into discord then "copy the link of the image" one by one and add into "scripts/config.js"

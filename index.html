@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/fonts.css">
+    <title>Long Ville Rp Loading screen</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/scripts/all.min.js"></script>
+</header>
+
+<body>
+    
+    <div class="video-container">
+        <video id="video" src="assets/videos/video.mp4" controls loop frameborder="0">
+            <source src="assets/videos/video.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <img id="cursor" src="assets/media/cursor.png">
+    <div class="overlay">
+        <div class="cornercontainer">
+            <div class="top">
+                <div class="left">
+                    <p class="title">Long Ville Rp</p>
+                    <p class="date" id="date"></p>
+                    <p class="state" id="clients">0/0</p>
+                </div>
+                <!-- <div class="right">
+                        <img class="logo" src="assets/media/logo.png">
+                    </div> -->
+            </div>
+
+            <div class="sounds">
+                <div class="switch">
+                    <label class="form-switch">
+                        <input type="checkbox" id="sounds">
+                        <i></i>
+                    </label>
+                    <span class="left">Off</span>
+                    <span class="right">On</span>
+                </div>
+                <div class="icon"><i class="fas fa-volume"></i></div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="information">
+                <p class="title">Long Ville Rp</p>
+                <div class="description">
+                    <p>Welcome to Long Ville Rp! A Finnish role-playing game server with room for all kinds of games
+                        for role players.
+                        Vice has an active and nice maintenance that takes care of your gaming experience
+                        as comfortable as possible.
+                        We have a really nice selection of mod cars.</p>
+                </div>
+                <div class="buttons">
+                    <button id="read-more">Read more <i class="fal fa-long-arrow-right"
+                            style="margin-left: 0.4vw;font-size: 0.9vw;"></i></button>
+                    <button id="collapse" style="display: none;">Collapse</button>
+                </div>
+            </div>
+
+            <div class="loader">
+                <div class="logo">
+                    <img class="transparent-logo" src="assets/media/transparent-logo.png">
+                    <img class="filled-logo" src="assets/media/filled-logo.png">
+                </div>
+                <p class="progress">0%</p>
+                <p class="description">Loading server..</p>
+            </div>
+
+            <div class="categories">
+                <div class="buttons">
+                    <button id="change-video">Change Video</button> <!-- New button to change the video -->
+                </div>
+                <div class="carousel">
+                    <div class="socialmedia">
+
+                    </div>
+                    <div class="staff">
+                        <div class="previous"></div>
+                        <div class="cards">
+                            <div class="innercards">
+
+                            </div>
+                            <div class="pages">
+
+                            </div>
+                        </div>
+                        <div class="next"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hideoverlay">
+                <div class="bind"></div>
+                HIDE COVER/SHOW VIDEO
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/scripts/config.js" type="text/javascript"></script>
+    <script src="assets/scripts/main.js" type="text/javascript"></script>
+
+    <script>
+        const videos = [
+            'assets/videos/video.mp4',
+            'assets/videos/video1.mp4',
+            'assets/videos/video2.mp4',
+            // 'assets/videos/video3.mp4',
+            // 'assets/videos/video4.mp4'
+        ];
+        let currentVideoIndex = 0;
+        const videoElement = document.getElementById('video');
+        const soundSwitch = document.getElementById('sounds');
+
+        function playVideoWithSound() {
+            videoElement.muted = false; // Ensure sound is enabled
+            const playPromise = videoElement.play();
+
+            if (playPromise !== undefined) {
+                playPromise.then(_ => {
+                    // Automatic playback started!
+                }).catch(error => {
+                    // Auto-play was prevented
+                    // Show a UI element to let the user manually start playback
+                    console.log('Auto-play was prevented, user interaction needed.');
+                });
+            }
+        }
+
+        document.getElementById('change-video').addEventListener('click', function () {
+            currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+            videoElement.src = videos[currentVideoIndex];
+            videoElement.load();
+            playVideoWithSound();
+        });
+
+        // Attempt to play the video with sound on page load
+        window.addEventListener('load', function () {
+            playVideoWithSound();
+        });
+
+        // Toggle video sound on/off based on the checkbox
+        soundSwitch.addEventListener('change', function () {
+            if (this.checked) {
+                videoElement.muted = false; // Sound on
+                videoElement.play();
+            } else {
+                videoElement.muted = true; // Sound off
+            }
+        });
+    </script>
+</body>
+
+</html>
